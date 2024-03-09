@@ -1,3 +1,3 @@
 # EC530_Project2
 
-DIY ML for Images 
+Smart Document Analyzer
