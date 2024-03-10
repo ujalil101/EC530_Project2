@@ -15,47 +15,6 @@
                 <button type="submit">Upload File</button>
             </form>
         </div>
-        <script>
-        document.getElementById('uploadForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var fileInput = document.querySelector('input[type="file"]');
-            var file = fileInput.files[0];
-            var formData = new FormData();
-            formData.append('file', file);
-
-            fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Authorization': 'Basic ' + btoa('example_user:example_password')
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                var token = data.token;
-                fetch('/upload', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': 'Bearer ' + token
-                    },
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data.message);
-                    fetch('/status', {
-                        method: 'GET',
-                        headers: {
-                            'Authorization': 'Bearer ' + token
-                        }
-                    })
-                    .then(response => response.json())
-                    .then(data => console.log(data.status))
-                    .catch(error => console.error('Error:', error));
-                })
-                .catch(error => console.error('Error:', error));
-            })
-            .catch(error => console.error('Error:', error));
-        });
-        </script>
+        
     </body>
 </html>
