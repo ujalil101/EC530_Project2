@@ -29,12 +29,12 @@ h1 {
 input[type="text"],
 input[type="password"],
 button {
-    width: 100%; /* Adjusted width */
-    padding: 12px; /* Adjusted padding */
+    width: 100%; 
+    padding: 12px; 
     margin-bottom: 20px;
     border: 2px solid #ccc; 
     border-radius: 4px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box; 
 }
 
 button {
@@ -50,6 +50,6 @@ button:hover {
 }
 
 .error {
-    color: red;
+    color: #0056b3;
     margin-top: 10px;
 }

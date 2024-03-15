@@ -3,7 +3,7 @@
       {
         "_id": "user_id",
         "username": "username",
-        "password_hash": "password_hash",
+        "password": "password",
         "email": "email",
         "documents": [
           {

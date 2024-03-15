@@ -9,13 +9,13 @@
 <body>
     <h1>Login</h1>
     <div class="container">
-        <form method="POST" action="{{ url_for('index') }}">
+        <form method="POST" action="{{ url_for('login') }}">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Login</button>
         </form>
         {% if error %}
-            <p class="error">{{ error }}</p>
+        <p class="error invalid">{{ error }}</p> 
         {% endif %}
     </div>
 </body>
