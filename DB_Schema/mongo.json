@@ -1,0 +1,34 @@
+{
+    "users": [
+      {
+        "_id": "user_id",
+        "username": "username",
+        "password_hash": "password_hash",
+        "email": "email",
+        "documents": [
+          {
+            "document_id": "document_id",
+            "document_name": "document_name",
+            "document_type": "document_type",
+            "upload_date": "upload_date",
+            "text_content": "text_content",
+            "summary": "summary",
+            "keywords": [
+              {
+                "keyword_text": "keyword_text",
+                "definition": "definition"
+              }
+            ],
+            "paragraphs": [
+              {
+                "paragraph_number": "paragraph_number",
+                "paragraph_text": "paragraph_text",
+                "sentiment": "sentiment"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+}
+  
