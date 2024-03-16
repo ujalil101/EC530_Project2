@@ -53,3 +53,6 @@ button:hover {
     color: #0056b3;
     margin-top: 10px;
 }
+.button-container {
+    margin-top: 10px; /* Adjust as needed */
+}
