@@ -1,8 +1,7 @@
 import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
-from datetime import datetime
-from bson.objectid import ObjectId
+
 
 # load password from .env file
 load_dotenv()
