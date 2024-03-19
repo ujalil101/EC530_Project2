@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-from mongo import insert_user_data, verify_credentials
-from uploader import save_pdf
+from Project2.EC530_Project2.Modules.authorization import insert_user_data, verify_credentials
+from Project2.EC530_Project2.Modules.file_uploader import save_pdf
 
 app = Flask(__name__)
 
