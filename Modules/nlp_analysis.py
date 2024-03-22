@@ -2,7 +2,8 @@ import fitz
 import re
 from collections import Counter
 from textblob import TextBlob
-
+from rake_nltk import Rake
+ 
 # extract text from pdf
 def extract_text_from_pdf(pdf_file_path):
     text = ""
@@ -49,10 +50,24 @@ def generate_summary(text, num_sentences=3):
     summary = ' '.join(sorted_sentences[:num_sentences])
     return summary
 
+# find top N keywords using RAKE algorithm
+def find_keywords_rake(text, top_n=7):
+    
+    r = Rake(max_length=3)
+    # extract key words
+    r.extract_keywords_from_text(text)
+    # get top n ranked
+    keywords = r.get_ranked_phrases()[:top_n]
+    # remove dups
+    unique_keywords = list(set(keywords))
+
+    return unique_keywords
+
+
 # sentiment analysis
 def perform_sentiment_analysis(text):
     blob = TextBlob(text)
-    # get sentiment polarity score (-1 to 1) from TextBlob
+    # get sentiment polarity score (-1 to 1) from textblob
     sentiment_score = blob.sentiment.polarity
     # get sentiment label based on the polarity score
     if sentiment_score > 0:
@@ -69,13 +84,16 @@ def analyze_uploaded_pdf(pdf_file_path):
     text = extract_text_from_pdf(pdf_file_path)
     # generate summary
     summary = generate_summary(text)
+    # get top key wrods
+    keywords = find_keywords_rake(text)
     # perform sentiment analysis
     sentiment = perform_sentiment_analysis(text)
     
-    return summary, sentiment
+    return summary, sentiment, keywords
 
 if __name__ == "__main__":
-    pdf_file_path = ""  
+    pdf_file_path = ""
     summary, keywords, sentiment = analyze_uploaded_pdf(pdf_file_path)
     print("Summary:", summary)
+    print("Keywords:", keywords)
     print("Sentiment:", sentiment)
