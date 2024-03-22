@@ -11,7 +11,7 @@ def save_pdf(file, username):
         filename = secure_filename(file.filename)
         file_path = os.path.join(UPLOAD_FOLDER, filename)
         file.save(file_path)
-        # Update MongoDB to store the document information
+        # update MongoDB to store the document information
         db = connect_to_mongodb()
         db.users.update_one({'username': username}, {'$push': {'documents': {'filename': filename, 'path': file_path}}})
         
