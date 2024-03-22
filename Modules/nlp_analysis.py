@@ -90,10 +90,3 @@ def analyze_uploaded_pdf(pdf_file_path):
     sentiment = perform_sentiment_analysis(text)
     
     return summary, sentiment, keywords
-
-if __name__ == "__main__":
-    pdf_file_path = ""
-    summary, keywords, sentiment = analyze_uploaded_pdf(pdf_file_path)
-    print("Summary:", summary)
-    print("Keywords:", keywords)
-    print("Sentiment:", sentiment)

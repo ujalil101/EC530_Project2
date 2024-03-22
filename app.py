@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for
-from Project2.EC530_Project2.Modules.authorization import insert_user_data, verify_credentials
-from Project2.EC530_Project2.Modules.file_uploader import save_pdf
+from flask import Flask, render_template, request, redirect, url_for, session
+from Modules.authorization import insert_user_data, verify_credentials
+from Modules.file_uploader import save_pdf
 
 app = Flask(__name__)
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 
 @app.route('/', methods=['GET'])
 def index():
@@ -10,16 +12,15 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         # checking if username and pwd in db 
         if verify_credentials(username, password):
-            return redirect(url_for('upload_file'))  # Corrected endpoint name
+            session['username'] = username  #set the username in the session
+            return redirect(url_for('upload_file'))
         else:
             return render_template('login.html', error="Invalid username or password")
-
     return render_template('login.html')
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -47,13 +48,17 @@ def signup():
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
+        username = session.get('username')  # get username from session
+        if not username:
+            return redirect(url_for('login'))  # go to login if user is not logged in
         if file.filename == '':
             return redirect(request.url)
-        if file and save_pdf(file):
+        if file and save_pdf(file, username):
             return redirect(url_for('success'))
         else:
             return render_template('upload.html', error="Invalid file format. Please upload a PDF file.")
     return render_template('upload.html')
+
 
 @app.route('/success')
 def success():
