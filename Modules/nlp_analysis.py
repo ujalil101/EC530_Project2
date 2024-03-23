@@ -51,7 +51,7 @@ def generate_summary(text, num_sentences=3):
     return summary
 
 # find top N keywords using RAKE algorithm
-def find_keywords_rake(text, top_n=7):
+def find_keywords_rake(text, top_n=3):
     
     r = Rake(max_length=3)
     # extract key words

@@ -15,6 +15,6 @@ def save_pdf(file, username):
         db = connect_to_mongodb()
         db.users.update_one({'username': username}, {'$push': {'documents': {'filename': filename, 'path': file_path}}})
         
-        return True
+        return file_path
     else:
         return False
