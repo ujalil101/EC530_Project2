@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Result Page</h1>
+    <div class="result-container">
+        <div class="result-section">
+            <p class="result-label">Summary:</p>
+            <div class="result-content">
+                <p>{{ summary }}</p>
+            </div>
+        </div>
+        <div class="result-section">
+            <p class="result-label">Sentiment:</p>
+            <p class="sentiment {{ sentiment }}">{{ sentiment }}</p>
+        </div>
+        <div class="result-section">
+            <p class="result-label">Keywords:</p>
+            <div class="result-content-keywords">
+                <p><span class="keywords">{{ keywords }}</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
