@@ -19,12 +19,9 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
-
-      - name: Change directory to tests
-        run: cd tests/
+          python-version: '3.x'
 
       - name: Run unit tests
         run: |
-          python3 test_nlp.py
-
+          python3 tests/test_nlp.py
+          python3 tests/test_authorization.py
