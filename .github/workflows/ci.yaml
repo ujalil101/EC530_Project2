@@ -27,4 +27,5 @@ jobs:
       - name: Run unit tests
         run: |
           python3 tests/test_nlp.py
+          
           python3 tests/test_authorization.py
