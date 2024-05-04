@@ -21,6 +21,11 @@ jobs:
         with:
           python-version: '3.8'
 
+      - name: Change directory to tests
+        run: cd tests/
+
       - name: Run unit tests
         run: |
-          python3 tests/
+          python3 test_nlp.py
+          python3 test_authorization.py
+
