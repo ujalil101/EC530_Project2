@@ -1,7 +1,14 @@
 # Smart Document Analyzer
 
+<img width="450" alt="Login" src="https://github.com/ujalil101/EC530_Project2/assets/74789609/ba687fa9-fcb7-4ebd-b309-4bf331199a9f">
+<img width="463" alt="Upload" src="https://github.com/ujalil101/EC530_Project2/assets/74789609/5a9706f9-18f5-4965-9161-9f69545285b8">
+<img width="580" alt="Analysis" src="https://github.com/ujalil101/EC530_Project2/assets/74789609/9a6dc4d5-a526-428f-9cc9-2646b0d89afd">
+
+
 ## Overview
 This is a web application built with Flask that allows users to upload PDF files for analysis. The application provides functionalities for user registration, login, file upload, and analysis of the uploaded PDF files.
+
+Upon signing up and logging in, users can submit a PDF document and receive an in-depth analysis, consisting of a summary, sentiment analysis, and extracted keywords.
 
 ## Features
 - **User Authentication**: Users can sign up for an account and log in securely.
