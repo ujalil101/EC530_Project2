@@ -12,3 +12,4 @@ python-dotenv==1.0.1
 rake-nltk==1.0.6
 textblob==0.18.0.post0
 Werkzeug==3.0.1
+python-socketio>=5.14.0 # not directly required, pinned by Snyk to avoid a vulnerability
